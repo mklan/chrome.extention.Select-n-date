@@ -23,17 +23,23 @@ SOFTWARE.*/
 function onClickHandler(info) {
 
   var sText = info.selectionText
+  
+  //check if the selected Text is a Date
   var date = Date.parse(sText);
 
+  //if not open the "new Event-form" with prefilled title
   if(date == null){
     window.open("https://www.google.com/calendar/render?action=TEMPLATE&text="+sText+"&sf=true&output=xml");
+  //if it's a Date convert them into ISO date
   }else{
     var start = date.toISOString();
     var end = date.add(1).hour().toISOString(); // one hour later
     
+    //Bring the new ISO date format into the right Google format ( no -,:,. and no milliseconds)
     start = start.replace(/(-|:|\.)/g, "").slice(0, -4) + 'Z';
     end = end.replace(/(-|:|\.)/g, "").slice(0, -4) + 'Z';
     
+    //Prefill the Date in the "new Event-form"
     window.open("https://www.google.com/calendar/render?action=TEMPLATE&dates="+start+"/"+end+"&sf=true&output=xml");
   }
 };
@@ -42,7 +48,7 @@ chrome.contextMenus.onClicked.addListener(onClickHandler);
 
 // Set up context menu at install time.
 chrome.runtime.onInstalled.addListener(function() {
-  var context = "selection";
+  var context = "selection"; //only present when text is selected
   var title = "Create a new calendar entry";
   var id = chrome.contextMenus.create({"title": title, "contexts":[context], "id": "context" + context});  
 });
