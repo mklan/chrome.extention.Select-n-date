@@ -3,7 +3,7 @@
 
   "name": "Select-n-date",
   "description": "Create a new calendar event by selecting a date or a title from a website.",
-  "version": "0.1",
+  "version": "0.2",
 
   "permissions": [
     "contextMenus"
