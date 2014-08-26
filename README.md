@@ -5,7 +5,7 @@ chrome.extention.Select-n-date
 
 Create a new calendar event by selecting a date or a title from a website. After selecting a text, open the context menu and click on "create a new calendar entry". 
 
-If you selected a date, the extention will try to parse it and create a new event on this particular date. Elsewise it will create a new event with the selected text as the title.
+If you have selected a date, the extention will try to parse it and create a new event on this particular date. Elsewise it will create a new event with the selected text as the title.
 
 #### Local dependent parsing
 
