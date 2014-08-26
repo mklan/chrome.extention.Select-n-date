@@ -22,14 +22,12 @@ SOFTWARE.*/
 
 function onClickHandler(info) {
 
-  var sText = info.selectionText
-  
   //check if the selected Text is a Date
-  var date = Date.parse(sText);
-
+  var date = Date.parse(info.selectionText);
+  
   //if not open the "new Event-form" with prefilled title
   if(date == null){
-    window.open("https://www.google.com/calendar/render?action=TEMPLATE&text="+sText+"&sf=true&output=xml");
+    window.open("https://www.google.com/calendar/render?action=TEMPLATE&text="+info.selectionText+"&sf=true&output=xml");
   //if it's a Date convert them into ISO date
   }else{
     var start = date.toISOString();
